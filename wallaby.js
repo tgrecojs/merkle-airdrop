@@ -2,14 +2,14 @@ export default function () {
   return {
     testFramework: 'ava',
     files: [
-      'index.js',
-      'source/**/*.js',
+      'src/**/*.js',
       'lib/**/*.js',
       'package.json', // important
     ],
     tests: [
-      'spec/**/*.js',
-      '!spec/support/**/*',
+      'test/**/*.test.js',
+      '!test/support/**/*',
+      '!src/**/*.js',
     ],
     env: {
       type: 'node',

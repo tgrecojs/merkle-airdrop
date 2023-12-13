@@ -1,11 +1,16 @@
 import test from 'ava';
-import {generateProof,verifyProof,createMerkleTree, addLeaf} from '../source/merkle.js'
+import {generateProof,verifyProof,createMerkleTree, addLeaf} from '../src/merkle.js'
 const makeBuffer = x => Buffer.from([x]);
 const testInputs = ['tom', 'nicole', 'josh', 'fran', 'tyler'];
 const trace = label => value => {
     console.log(label, ':::', value)
     return value
 }
+
+test('Buffer utils',  t =>  {
+    const testObjects = testInputs.map(x => ({key: x, value: Buffer.from(x)}))
+    t.deepEqual(testObjects, testObjects.map(x => ({...x, unserialized: x.value.toString('utf8')})))
+})
 test('merkle tree:: first one', t => {
     // Creating a merkle tree of usernames.
 const usernames = [Buffer.from(["Bob"]), Buffer.from(["Alice"])].map(trace('alice andbob'));
