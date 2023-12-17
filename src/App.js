@@ -9,8 +9,6 @@ const Home = ({ hasAddresses = false, wallet = "" }) => {
     set(value);
   };
 
-  console.log("walletInput", { walletInput });
-
   return (
     <div className="w-full bg-white">
       {hasAddresses ? (
